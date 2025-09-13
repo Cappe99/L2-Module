@@ -1,16 +1,19 @@
 export class Cart {
     constructor() {
-        this.item = []
+        this.items = []
     }
 
     addProductToCart(product, quantity) {
-        this.item.push({ ...product, quantity })
+         if (quantity === undefined) {
+            quantity = 1
+        }
+        this.items.push({ ...product, quantity })
     }
 
     getTotalPrice() {
         let totalPrice = 0
-        for (let item of this.item) {
-            totalPrice += item.price * item.quantity
+        for (let items of this.items) {
+            totalPrice += items.price * items.quantity
         }
         return totalPrice
     }
