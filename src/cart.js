@@ -34,6 +34,10 @@ export class Cart {
        }
     }
 
+    getTotalQuantityInCart() {
+        return this.items.reduce((total, item) => total + item.quantity, 0)
+    }
+
     getTotalPrice() {
         let totalPrice = 0
         for (let items of this.items) {

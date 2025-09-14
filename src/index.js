@@ -10,5 +10,7 @@ cart.addProductToCart({ id: 12, name: "Keps", price: 199})
 cart.removeProductFromCart({ id: 1})
 
 
+
 console.log(cart.items)
 console.log(cart.getTotalPrice())
+console.log("Total quantity in cart:", cart.getTotalQuantityInCart())
