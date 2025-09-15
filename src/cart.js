@@ -1,6 +1,9 @@
+import { DiscountManager } from "./discountManager.js"
+
 export class Cart {
     constructor() {
         this.items = []
+        this.discountManager = new DiscountManager()
     }
 
     addProductToCart(product, quantity) {
@@ -34,15 +37,23 @@ export class Cart {
        }
     }
 
+    clearCart() {
+        this.items = []
+    }
+
     getTotalQuantityInCart() {
         return this.items.reduce((total, item) => total + item.quantity, 0)
     }
 
-    getTotalPrice() {
+   /* getTotalPrice() {
         let totalPrice = 0
         for (let items of this.items) {
             totalPrice += items.price * items.quantity
         }
         return totalPrice
+    }*/
+     getTotalPrice() {
+        let totalPrice = this.items.reduce((sum, item) => sum + item.price * item.quantity, 0)
+        return this.discountManager.applayDiscounts(totalPrice)
     }
 }
