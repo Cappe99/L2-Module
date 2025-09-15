@@ -20,18 +20,6 @@ export class DiscountManager {
         return true
     }
 
-    /*buyXPayForY(cartItems, x, y) {
-        let discountAmount = 0
-
-        for (let item of cartItems) {
-            if (item.quantity >= x) {
-                const groups = Math.floor(item.quantity / x)
-                discountAmount += groups * (x - y) * item.price
-            }
-        }
-        return discountAmount
-    }*/
-
     buyXPayForY(x, y) {
         this.buyXPayForYRules.push({ x, y })
     }

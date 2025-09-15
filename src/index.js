@@ -1,11 +1,13 @@
 import { Cart } from "./cart.js";
 import { DiscountManager } from "./discountManager.js";
+import { CurrencyManager } from "./currencyManager.js";
 
 const cart = new Cart()
 const discount = new DiscountManager()
+const cm = new CurrencyManager("SEK")
 
 
-cart.addProductToCart({ id: 1, name: "T-shit", price: 200}, 3)
+cart.addProductToCart({ id: 1, name: "T-shit", price: 200}, 7)
 cart.addProductToCart({ id: 1, name: "T-shit", price: 200}, 3)
 cart.addProductToCart({ id: 12, name: "Keps", price: 199})
 
@@ -13,10 +15,18 @@ cart.addProductToCart({ id: 12, name: "Keps", price: 199})
 //cart.removeProductFromCart({ id: 1})
 //cart.clearCart()
 //cart.discountManager.applyDiscountCode("SOMMAR25")
-cart.discountManager.applyDiscountCode("Sommar")
+cart.discountManager.applyDiscountCode("BLACKFRIDAY")
 
-cart.discountManager.buyXPayForY(3, 2)
+await cm.updateRates()
+
+console.log("1000 SEK i USD:", cm.convert(1000, "USD"))
+console.log("1000 SEK i EUR:", cm.convert(1000, "EUR"))
+
+//cart.discountManager.buyXPayForY(3, 2)
 
 console.log(cart.items)
 console.log("Total price:", cart.getTotalPrice())
 console.log("Total quantity in cart:", cart.getTotalQuantityInCart())
+
+
+//TODO: Get total price in correct currency!
