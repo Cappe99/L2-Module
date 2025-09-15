@@ -44,9 +44,9 @@ export class Cart {
     getTotalQuantityInCart() {
         return this.items.reduce((total, item) => total + item.quantity, 0)
     }
-    
+
      getTotalPrice() {
         let totalPrice = this.items.reduce((sum, item) => sum + item.price * item.quantity, 0)
-        return this.discountManager.applayDiscounts(totalPrice)
+        return this.discountManager.applayDiscounts(this.items, totalPrice)
     }
 }
