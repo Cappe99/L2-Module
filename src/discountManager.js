@@ -5,6 +5,8 @@ export class DiscountManager {
         this.appliedDiscounts = []
         this.validDiscounts = validDiscounts
         this.buyXPayForYRules = []
+        this.freeShippingThreshold = null
+         this.shippingCost = undefined
     }
 
     applyDiscountCode(code) {
@@ -22,6 +24,17 @@ export class DiscountManager {
 
     buyXPayForY(x, y) {
         this.buyXPayForYRules.push({ x, y })
+    }
+
+    setFreeShippingThreshold(amount) {
+        this.freeShippingThreshold = amount
+    }
+    
+    isFreeShipping(cartTotal) {
+        if (!this.freeShippingThreshold) {
+            return false
+        }
+        return cartTotal >= this.freeShippingThreshold
     }
 
     applayDiscounts(cartItems, totalPrice) {

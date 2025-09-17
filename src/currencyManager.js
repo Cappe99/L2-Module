@@ -7,6 +7,7 @@ export class CurrencyManager {
     async updateRates() {
     const res = await fetch(`https://api.frankfurter.app/latest?from=${this.baseCurrency}`)
     const data = await res.json()
+    console.log("API response:", data) 
     this.exchangeRates = data.rates
     this.exchangeRates[this.baseCurrency] = 1
     console.log("Fetched rates:", this.exchangeRates)

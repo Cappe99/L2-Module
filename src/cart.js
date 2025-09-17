@@ -49,4 +49,13 @@ export class Cart {
         let totalPrice = this.items.reduce((sum, item) => sum + item.price * item.quantity, 0)
         return this.discountManager.applayDiscounts(this.items, totalPrice)
     }
+
+    getShippingCost() {
+        const total = this.getTotalPrice()
+        if (this.discountManager.isFreeShipping(total)) {
+            return 0
+        }
+        return this.discountManager.shippingCost ?? null
+        console.log(total)
+    }
 }
