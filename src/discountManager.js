@@ -6,7 +6,7 @@ export class DiscountManager {
         this.validDiscounts = validDiscounts
         this.buyXPayForYRules = []
         this.freeShippingThreshold = null
-         this.shippingCost = undefined
+        this.shippingCost = undefined
     }
 
     applyDiscountCode(code) {
