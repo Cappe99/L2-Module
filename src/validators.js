@@ -1,4 +1,4 @@
-import { CartError } from "./errors.js";
+import { CartError, DiscountError } from "./errors.js";
 
 export function validateProduct(product) {
     if (!product || typeof product !== "object") {
@@ -23,3 +23,49 @@ export function validateQuantity(quantity) {
         throw new CartError("Quantity must be a positive integer.", "INVALID_QUANTITY")
     }
 }
+
+export function validateDiscountCode(code) {
+    if (typeof code !== "string" || !code.trim()) {
+        throw new DiscountError("Discount code must be a non-empty string.", "INVALID_CODE")
+    }
+}
+
+export function validateBuyXPayForY(x, y) {
+    if (!Number.isInteger(x) || !Number.isInteger(y) || x <= 0 || y <= 0 || y >= x) {
+        throw new DiscountError("Invalid Buy X Pay For Y rule. Ensure X > Y and both are positive integers.",
+             "INVALID_BUYX_PAYY_RULE")
+    }
+}
+
+export function validateFreeShippingThreshold(amount) {
+    if (typeof amount !== "number" || amount < 0) {
+        throw new DiscountError("Free shipping threshold must be a positive number.", "INVALID_THRESHOLD")
+    }
+}
+
+export function validateCartTotal(cartTotal) {
+    if (typeof cartTotal !== "number" || cartTotal < 0) {
+        throw new DiscountError("Cart total must be a non-negative number.", "INVALID_CART_TOTAL")
+    }
+}
+
+export function validateCartItems(cartItems) {
+    if (!Array.isArray(cartItems)) {
+        throw new DiscountError("Cart items must be an array.", "INVALID_CART_ITEMS")
+    }
+
+    for (let item of cartItems) {
+        if (typeof item.price !== "number" || typeof item.quantity !== "number") {
+            throw new DiscountError("Cart item must have valid price and quantity.", "INVALID_CART_ITEM");
+        }
+    }
+}
+
+export function  validateTotalPrice(totalPrice) {
+    if (typeof totalPrice !== "number" || totalPrice < 0) {
+        throw new DiscountError("Total price must be a non-negative number.", "INVALID_TOTAL_PRICE")
+    }
+}
+
+
+

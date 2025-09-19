@@ -1,4 +1,11 @@
 import { validDiscounts } from "./discountCodes.js"
+import { validateDiscountCode,
+         validateBuyXPayForY,
+         validateFreeShippingThreshold, 
+         validateCartTotal,
+         validateCartItems,
+         validateTotalPrice
+         } from "./validators.js"
 
 export class DiscountManager {
     constructor() {
@@ -10,6 +17,8 @@ export class DiscountManager {
     }
 
     applyDiscountCode(code) {
+        validateDiscountCode(code)
+
         const discount = this.validDiscounts.find(d => d.code === code)
 
         if (!discount) {
@@ -23,14 +32,17 @@ export class DiscountManager {
     }
 
     buyXPayForY(x, y) {
+        validateBuyXPayForY(x, y)
         this.buyXPayForYRules.push({ x, y })
     }
 
     setFreeShippingThreshold(amount) {
+        validateFreeShippingThreshold(amount)
         this.freeShippingThreshold = amount
     }
     
     isFreeShipping(cartTotal) {
+        validateCartTotal(cartTotal)
         if (!this.freeShippingThreshold) {
             return false
         }
@@ -38,7 +50,11 @@ export class DiscountManager {
     }
 
     applayDiscounts(cartItems, totalPrice) {
+        validateCartItems(cartItems)
+        validateTotalPrice(totalPrice)
+
         let discountedPrice = totalPrice
+
         for (let discount of this.appliedDiscounts) {
             discountedPrice *= (1 - discount.percentage / 100)
         }

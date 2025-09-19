@@ -5,3 +5,11 @@ export class CartError extends Error {
         this.code = code
     }
 }
+
+export class DiscountError extends Error {
+    constructor(message, code) {
+        super(message)
+        this.name = "DiscountError"
+        this.code = code
+    }
+}
