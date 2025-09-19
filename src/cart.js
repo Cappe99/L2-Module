@@ -1,5 +1,5 @@
 import { DiscountManager } from "./discountManager.js"
-import { validateProduct } from "./validators.js"
+import { validateProduct, validateQuantity } from "./validators.js"
 
 export class Cart {
     constructor() {
@@ -9,6 +9,8 @@ export class Cart {
 
     addProductToCart(product, quantity) {
         validateProduct(product)
+        validateQuantity(quantity)
+
          if (quantity === undefined) {
             quantity = 1
         }
@@ -22,6 +24,9 @@ export class Cart {
     }
 
     removeProductFromCart(product, quantity) {
+        validateProduct(product)
+        validateQuantity(quantity)
+        
         if (quantity === undefined) {
             quantity = 1
         }

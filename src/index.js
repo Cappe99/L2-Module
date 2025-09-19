@@ -7,8 +7,8 @@ const discount = new DiscountManager()
 const cm = new CurrencyManager("SEK")
 
 
-cart.addProductToCart({ id: 1, name: "T-shit", price: 200}, 7)
-cart.addProductToCart({ id: 1, name: "T-shit", price: 200}, 3)
+cart.addProductToCart({ id: 1, name: "T-shit", price: 200})
+cart.addProductToCart({ id: 1, name: "T-shit", price: 200})
 cart.addProductToCart({ id: 12, name: "Keps", price: 199})
 
 

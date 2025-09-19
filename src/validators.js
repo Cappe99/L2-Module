@@ -14,3 +14,12 @@ export function validateProduct(product) {
         throw new CartError("Product must have a name", "INVALID_NAME")
     }
 }
+
+export function validateQuantity(quantity) {
+     if (quantity === undefined || quantity === null) {
+        quantity = 1
+    }
+    if (!Number.isInteger(quantity) || quantity <= 0) {
+        throw new CartError("Quantity must be a positive integer.", "INVALID_QUANTITY")
+    }
+}
