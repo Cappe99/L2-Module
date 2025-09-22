@@ -27,6 +27,7 @@ export class Cart {
         validateProduct(product)
         validateQuantity(quantity)
         
+        
         if (quantity === undefined) {
             quantity = 1
         }
