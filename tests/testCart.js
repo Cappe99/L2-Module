@@ -1,4 +1,4 @@
-import { Cart } from "../cart.js"
+import { Cart } from "../src/cart.js"
 
 console.log("===== START TEST =====")
 

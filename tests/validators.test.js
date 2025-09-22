@@ -7,8 +7,8 @@ import {
   validateCartTotal,
   validateCartItems,
   validateTotalPrice
- } from "../validators.js"
-import { CartError, DiscountError } from "../errors.js"
+ } from "../src/validators.js"
+import { CartError, DiscountError } from "../src/errors.js"
 
 describe("validateProduct", () => {
   test("accepts a valid product", () => {
