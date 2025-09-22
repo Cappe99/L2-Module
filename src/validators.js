@@ -66,6 +66,3 @@ export function  validateTotalPrice(totalPrice) {
         throw new DiscountError("Total price must be a non-negative number.", "INVALID_TOTAL_PRICE")
     }
 }
-
-
-

@@ -16,7 +16,7 @@ cart.addProductToCart({ id: 12, name: "Keps", price: 199})
 //cart.clearCart()
 //cart.discountManager.applyDiscountCode("SOMMAR25")
 
-//cart.discountManager.applyDiscountCode("BLACKFRIDAY")
+cart.discountManager.applyDiscountCode("BLACKFRIDAY")
 
 //await cart.currencyManager.updateRates()
 
@@ -26,7 +26,7 @@ cart.addProductToCart({ id: 12, name: "Keps", price: 199})
 cart.discountManager.buyXPayForY(3, 2)
 
 console.log(cart.items)
-cart.discountManager.setFreeShippingThreshold(600)
+cart.discountManager.setFreeShippingThreshold(5000)
 cart.discountManager.shippingCost = 78
 console.log("Total price:", cart.getTotalPriceafterDiscounts())
 console.log("Shipping cost:", cart.getShippingCost())
