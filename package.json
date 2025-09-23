@@ -1,5 +1,5 @@
 {
-  "name": "l2-module",
+  "name": "l2-module-cart-and-discounts",
   "version": "1.0.0",
   "description": "Webshop-utils",
   "type": "module",
@@ -9,7 +9,7 @@
     "start": "node src/index.js"
   },
   "author": "Casper Björlin",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.28.4",
     "@babel/preset-env": "^7.28.3",

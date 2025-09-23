@@ -7,7 +7,7 @@ import {
   validateCartTotal,
   validateCartItems,
   validateTotalPrice
- } from "../src/validators.js"
+ } from "../src/Rules/validators.js"
 import { CartError, DiscountError } from "../src/errors.js"
 
 describe("validateProduct", () => {
