@@ -1,11 +1,5 @@
 import { validDiscounts } from "./discountCodes.js"
-import { validateDiscountCode,
-         validateBuyXPayForY,
-         validateFreeShippingThreshold, 
-         validateCartTotal,
-         validateCartItems,
-         validateTotalPrice
-         } from "./validators.js"
+import * as DiscountRules from "./Rules/discountRules.js"
 
 export class DiscountManager {
     constructor() {
@@ -17,57 +11,22 @@ export class DiscountManager {
     }
 
     applyDiscountCode(code) {
-        validateDiscountCode(code)
-
-        const discount = this.validDiscounts.find(d => d.code === code)
-
-        if (!discount) {
-            return false
-        }
-
-        if (!this.appliedDiscounts.some(d => d.code === code)) {
-            this.appliedDiscounts.push(discount)
-        }
-        return true
+       return DiscountRules.applyDiscountCodeRule(this, code)
     }
 
     buyXPayForY(x, y) {
-        validateBuyXPayForY(x, y)
-        this.buyXPayForYRules.push({ x, y })
+        return DiscountRules.addBuyXPayForYRule(this, x, y)
     }
 
     setFreeShippingThreshold(amount) {
-        validateFreeShippingThreshold(amount)
-        this.freeShippingThreshold = amount
+        return DiscountRules.setFreeShippingThresholdRule(this, amount)
     }
     
     isFreeShipping(cartTotal) {
-        validateCartTotal(cartTotal)
-        if (!this.freeShippingThreshold) {
-            return false
-        }
-        return cartTotal >= this.freeShippingThreshold
+      return DiscountRules.isFreeShippingRule(this, cartTotal)
     }
 
     applayDiscounts(cartItems, totalPrice) {
-        validateCartItems(cartItems)
-        validateTotalPrice(totalPrice)
-
-        let discountedPrice = totalPrice
-
-        for (let discount of this.appliedDiscounts) {
-            discountedPrice *= (1 - discount.percentage / 100)
-        }
-
-        for (let rule of this.buyXPayForYRules) {
-            for (let item of cartItems) {
-                if (item.quantity >= rule.x) {
-                    const groups = Math.floor(item.quantity / rule.x)
-                    const discountAmount = groups * (rule.x - rule.y) * item.price
-                    discountedPrice -= discountAmount
-                }
-            }
-        }
-        return discountedPrice
+    return DiscountRules.applyDiscountsRule(this, cartItems, totalPrice)
     }
 }

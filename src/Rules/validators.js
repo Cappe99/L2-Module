@@ -1,4 +1,4 @@
-import { CartError, DiscountError } from "./errors.js";
+import { CartError, DiscountError } from "../errors.js";
 
 export function validateProduct(product) {
     if (!product || typeof product !== "object") {
