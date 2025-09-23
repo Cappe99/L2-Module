@@ -49,7 +49,53 @@ console.log("Total prrice to pay:", cart.getFinalPrice())
 
 For a complete demonstration including discounts, “Buy X Pay for Y” rules, and free shipping, run the full test script included in the package.
 
-### TEST
+# Dependencies, Language and Versions
 
-Test Report [Test rapport](../L2-Module/tests/testRapport.md)
+### Language & Runtime
+
+- The module is implemented in JavaScrip
+- Requires Node.js
+
+### Dependencies
+
+All dependencies are managed with npm and defined in `package.json`.
+
+**DevDependencies**:
+- `jest` - used for unit testing
+- `babel-jest` – integrates Babel with Jest for ES module support.
+- `@babel/core` and `@babel/preset-env` – ensure compatibility with modern JavaScript features.
+
+There are currently **no runtime dependencies**, meaning the module can be used without extra installations apart from Node.js itself.
+
+### Versioning
+- This project follows **Semantic Versioning (SemVer)**:
+- **MAJOR** – Breaking changes  
+- **MINOR** – Backwards-compatible new features  
+- **PATCH** – Bug fixes  
+
+The current version is **1.0.0**.
+
+### Installation of Dependencies
+To install all dependencies, run:
+
+```bash
+npm install
+```
+
+# Contributing
+
+Contributions are welcome!
+
+If you want to help improve this project, here’s how you can get started:
+
+[developer guide](LinkToGitHubRepoLaater)
+
+
+## TEST
+
+[Test report](https://github.com/Cappe99/L2-Module/blob/main/tests/testRapport.md)
+
+## License
+
+[MIT](https://github.com/Cappe99/L2-Module/blob/main/LICENSE)
 
