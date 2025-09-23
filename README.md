@@ -88,7 +88,7 @@ Contributions are welcome!
 
 If you want to help improve this project, here’s how you can get started:
 
-[developer guide](LinkToGitHubRepoLaater)
+[developer guide](https://github.com/Cappe99/L2-Module/blob/main/docs/CONTRIBUTING.md)
 
 
 ## TEST
