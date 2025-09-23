@@ -1,5 +1,11 @@
 # Shopping Cart module
 
+### HEADS UP
+
+This is a basic modul that is written by me, Casper a student at linnaeus university. Bugs may occur.
+
+---
+
 The shopping cart is a simplel tool for building a webb store. It manages the cart functionality, handles shipping costs, and applies discount rules.
 
 ## Installation
@@ -40,4 +46,6 @@ console.log("Total price:", cart.getTotalPriceafterDiscounts())
 console.log("Shipping fee:", cart.getShippingCost())
 console.log("Total prrice to pay:", cart.getFinalPrice())
 ```
+
+For a complete demonstration including discounts, “Buy X Pay for Y” rules, and free shipping, run the full test script included in the package.
 

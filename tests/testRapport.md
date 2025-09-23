@@ -31,7 +31,7 @@ All validator functions passed the expected scenarios, ensuring robust input han
 A full test script is included in the `tests` folder demonstrating all features. Here’s a **short example** from the test script:
 
 ```js
-import { Cart } from "../src/cart.js"
+import { Cart } from "l2-module-cart-and-discounts"
 
 console.log("===== START TEST =====")
 
