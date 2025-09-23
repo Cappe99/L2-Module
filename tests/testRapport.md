@@ -25,6 +25,13 @@ All validator functions passed the expected scenarios, ensuring robust input han
 
 ![UnitTest](../Images/UnitTests.png)
 
+To run all unit test first install the dependencies:
+
+`npm install`
+
+then run:
+
+`npm test` in the terminal
 
 ## 3. Use Case / End-to-End Test
 

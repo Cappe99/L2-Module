@@ -49,3 +49,7 @@ console.log("Total prrice to pay:", cart.getFinalPrice())
 
 For a complete demonstration including discounts, “Buy X Pay for Y” rules, and free shipping, run the full test script included in the package.
 
+### TEST
+
+Test Report [Test rapport](../L2-Module/tests/testRapport.md)
+
