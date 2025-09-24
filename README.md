@@ -73,7 +73,7 @@ There are currently **no runtime dependencies**, meaning the module can be used 
 - **MINOR** – Backwards-compatible new features  
 - **PATCH** – Bug fixes  
 
-The current version is **1.0.0**.
+The current version is **1.0.1**.
 
 ### Installation of Dependencies
 To install all dependencies, run:
