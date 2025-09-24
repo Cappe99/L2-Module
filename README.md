@@ -93,7 +93,7 @@ If you want to help improve this project, here’s how you can get started:
 
 ## TEST
 
-[Test report](https://github.com/Cappe99/L2-Module/blob/main/tests/testRapport.md)
+[Test report](https://github.com/Cappe99/L2-Module/blob/main/docs/testRapport.md)
 
 ## License
 

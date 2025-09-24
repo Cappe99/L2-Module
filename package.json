@@ -1,6 +1,6 @@
 {
   "name": "l2-module-cart-and-discounts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Webshop-utils",
   "type": "module",
   "main": "index.js",
