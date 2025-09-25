@@ -97,6 +97,10 @@ If you want to help improve this project, here’s how you can get started:
 
 [Test report](https://github.com/Cappe99/L2-Module/blob/main/docs/testRapport.md)
 
+## Reflektion till Daniel
+
+[Reflektion](https://github.com/Cappe99/L2-Module/blob/main/docs/reflektion.md) 
+
 ## License
 
 [MIT](https://github.com/Cappe99/L2-Module/blob/main/LICENSE)

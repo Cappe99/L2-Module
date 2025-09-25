@@ -9,3 +9,11 @@
 | `validateDiscountCode(code)` | Kollar om en rabattkod är giltig | **Don’t Add Gratuitous Context:** Efter att ha läst stycket Don’t Add Gratuitous Context i clean code, och reflekterade över min validator class insåg jag att jag har validate i början på alla funktioner. Detta kommer att leda till att jag kommer få hur många förslag som helst i vscode som min IDE, när jag ska lägga till dessa. Nu i efterhand skulle jag ha döpt alla dessa till mer specifika namn som tex "isValidCode", då det blir mer tydligt att det är true eller false och kan då applisera en annan regel **Method Names**, som kommer göra det ännu mer tydligt för läsaren av min kod.  |
 
 ---
+
+## Kapitelreflektion kap 2
+
+Även om jag läste kapitlet innan och hade hela tiden i bakhuvudet vissa av reglerna tappar man snabbt bort sig. Något som är tydligt för mig i stunden är helt feltolkande dagen efter, och tänk då om någon annan ska läsa och förstå vad jag menar om jag inte ens fattar dagen efter. Det är först när jag granskar min egen kod jag fattar hur svårt det faktiskt är att skriva bra namn till sina klasser, funktioner, veriabler och allt där emellan. 
+
+Även om jag inte köper allt som står i boken som jag även argumenterade för i tabellen över så tycker jag att det är väldigt intressant hur namngivning kan göra så stor skillnad för att förstå kod. Vi döper nästan allt i koden och jag förstår nu hur svårt det faktiskt är att göra det bra. 
+
+I sista delen av kapitel 2 står det att många är rädda att byta namn på saker för att andra programmerare kan bli griniga. Jag tycker att detta är en väldigt intressant poäng, då en diskussion om namn troligtvis kan leda till att koden blir ännu mer läsbar.
