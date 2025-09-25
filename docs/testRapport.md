@@ -42,16 +42,6 @@ Testing is divided into two parts:
 **What:** Verify invalid input triggers errors.  
 **How:** Automated Jest tests.  
 
-## Test Goals
-The goal of testing is to confirm that the module behaves correctly. 
-
----
-
-## Test Strategy
-Testing is performed in two layers:  
-- **Manual testing:** End-to-end scenarios run in Node.js via the cart test file.  
-- **Automated unit testing:** Validator logic is tested with Jest.  
-
 ---
 
 ## Manual Testing – Test Cases

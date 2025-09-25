@@ -3,7 +3,7 @@ import { DiscountManager } from "./discountManager.js";
 import { CurrencyManager } from "./currencyManager.js";
 import { CartError, DiscountError } from "./errors.js";
 import { validDiscounts } from "./discountCodes.js";
-import * as Validators from "./validators.js"
+import * as Validators from "../src/Rules/validators.js"
 
 export {
     Cart,
