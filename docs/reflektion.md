@@ -17,3 +17,45 @@
 Även om jag inte köper allt som står i boken som jag även argumenterade för i tabellen över så tycker jag att det är väldigt intressant hur namngivning kan göra så stor skillnad för att förstå kod. Vi döper nästan allt i koden och jag förstår nu hur svårt det faktiskt är att göra det bra. 
 
 I sista delen av kapitel 2 står det att många är rädda att byta namn på saker för att andra programmerare kan bli griniga. Jag tycker att detta är en väldigt intressant poäng, då en diskussion om namn troligtvis kan leda till att koden blir ännu mer läsbar.
+
+---
+
+# Analys av funktioner (kapitel 3)
+
+## Tabell över fem längsta metoder
+
+| Metodnamn | Länk eller kod | Antal rader (ej ws) | Reflektion |
+|-----------|----------------|----------------------|-------------|
+| `addProduct(items, product, quantity)` | ![addProduct](../Images/addProduct.PNG) | 12 | **Do one thing**: Gör flera saker (validerar, letar upp produkt, uppdaterar/pushar). Borde brytas ut i `findProduct`, `updateQuantity`, `addNewItem`. **Triads**: 3 argument. Har funderat mycket på denna men jag vet inte hur jag på ett bra sätt skulle lösa detta. |
+| `removeProduct(items, product, quantity)` | `cartRules.js` | 16 | Liknar `addProduct`, duplicerar en del logik. Bryter mot **Don't Repeat Yourself**. Gör också flera saker: validering, hitta produkt, uppdatera/splice. Hjälp funktioner skulle göra koden mycket bättre och kan få `addProduct(items, product, quantity)` och denna att smidigt och lätt kunna arbeta ihop. Även här har jag **Triads** som man helst bör unvika. |
+|  `validateProduct(product)` | `validators.js` | 11 |Gör flera kontroller på rad. Följer **Error handling is one thing** (kastar alltid fel, ändrar inget state). Svår att bryta upp utan att förlora sammanhanget, men kan extraheras i små hjälpfunktioner som `validateId`, `validatePrice`, `validateName` för bättre läsbarhet och följa **Blocks and indenting**. |
+| `applyDiscountsRule(manager, cartItems, totalPrice)` | `discountRules.js` | 23 | Lång funktion. Gör både procentrabatter och “Buy X Pay for Y”  regler i samma funktion. Här bryts **Do one thing** och **One level of abstraction**. Kunde delas upp i `applyPercentageDiscounts` och `applyBuyXPayForY`. Men även här "bryter" jag mot reglen **Triads** med mina tre argument. |
+| `applyDiscountCodeRule(manager, code)` | `discountRules.js` | 10 | **Have no side effects:** Efter att jag har läst detta stycket blev jag osäker på om jag har något som anses vara en side effect. Funktionen ändrar manager.appliedDiscounts när en giltig kod hittas. Den gör alltså mer än att bara kontrollera koden, vilket räknas som en side effect. Ett alternativ hade varit att döpa funktionen till validateAndApplyDiscountCode, så att det blir tydligt att funktionen både kontrollerar och uppdaterar, Men då skulle den bryta mot **Do one thing** men även **Small!**|
+
+
+## Kapitelreflektion kap 3 
+
+När jag analyserade mina längsta funktioner märkte jag snabbt att de ofta gör mer än en sak. Till exempel både `addProduct` och `removeProduct` gör validering, letar efter rätt objekt, och sedan uppdaterar eller modifierar arrayen. Detta bryter mot regeln **Do One Thing** och gör koden svårare att återanvända och testa. Jag ser också tydliga brott mot **Don’t Repeat Yourself**, eftersom logik för “om quantity är undefined  sätt 1” finns på flera ställen. Det borde ligga i en hjälpfunktion.  
+
+En annan brist är att många av mina funktioner tar 2–3 argument, vilket går emot rekommendationen att helst bara ha 0–1 argument. Det gör koden mer svårtestad och kräver fler kombinationer i testfallen. 
+
+Däremot tycker jag att felhanteringen i mina `validators` är ganska bra. De kastar alltid undantag istället för att returnera error koder, vilket följer rekommendationen **Prefer Exceptions to Returning Error Codes**.  
+
+Jag håller med om de flesta av reglerna i kapitel 3, men jag märker också att det ibland blir överdrivet att bryta ner väldigt små funktioner. Exempelvis i `validateProduct` tycker jag det är mer läsbart att se alla kontroller i rad än att bryta ut varje enskild check i separata funktioner.  
+
+
+## Reflektion över egen kodkvalitet
+
+Jag hade läst både kap 2 och 3 innan jag började att koda, och hade i bakhuvudet hela tiden att funktioner ska vara små och namnen ska vara tydliga. Men när jag senare skulle analysera det jag faktiskt spottade ut mig blev det lite mer meckigt. Som jag ser det finns det båda en del styrkor men även svagheter av det jag lyckades få ihop.
+
+Om jag ser generellt på min funktioner när jag går tillbaka och reflekterar, så tycker jag att det kan bli mycket bättre. Det är lätt att ha teorin i huvudet men att faktiskt implementera det... Det är en annan femma. Funktionerna är ibland lite för långa och gör INTE bara en sak. Till exempel gör varken addProduct och removeProduvt bara en sak.
+Detta bryter mot principen Do One Thing och gör att koden blir svårare att återanvända och testa. Dessutom upprepar jag logik på flera ställen, som hanteringen av quantity när det inte är definierat. Här hade det varit bättre att extrahera en hjälpfunktion, som kan användas på båda ställerna.  
+
+Jag ser också att många av mina funktioner använder två eller tre argument. Det fungerar, men det går emot bokens rekommendation om att helst hålla sig till noll parametrar eller en osv. Med flera parametrar blir funktionerna mer svårtestade och kräver fler kombinationer i testfallen. Här skulle det vara en förbättring att slå ihop argumenten i ett objekt eller att se över om alla parametrar verkligen behövs. Just nu vet jag inte hur jag ska lösa detta problemet.
+
+Samtidigt finns det delar av koden jag är nöjd med. Mina validatorer, som validateProduct, följer principen Error handling is one thing. De kastar alltid undantag istället för att returnera felkoder, och de ändrar aldrig på state. Det gör logiken konsekvent och lättare att förstå. Däremot har jag funderat på hur långt man ska gå i att bryta ner en sådan funktion i mindre delar. Just nu tycker jag det är mer läsbart att ha alla valideringar i rad, även om boken föreslår att man kan dela upp dem i små hjälpfunktioner.
+
+Namngivningen är den del jag från början tänkte på mest när jag började med modulen. Men även här tycker jag att vissa namn inte är helt 100. Utöver det jag skrivit om i tabellen om namngivning tycker jag generellt att namnen till stor del är okej, men som jag ser det är det först när någon annan granskar och ska förstå som det faktiskt blir tydligt. 
+Tex som på workshoppen, vissa namn som var tydliga för min grupp när vi diskuterade var inte lika självklar för den andra gruppen. 
+
+Jag förstår reglerna och köper dess innerbörd men jag vill ändå kunna diskitera kring när jag anser att det inte är lämpligt eller fördelaktigt att använda dessa regler till punkt och pricka.
