@@ -1,6 +1,5 @@
 # Developer Guide
 
-Thanks for contributing to this library!
 Below are some tips to help you understand:
 
 - The structure of the project  

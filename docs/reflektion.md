@@ -1,4 +1,4 @@
-# Namngivning (Clean Code kapitel 2)
+# Namngivning kapitel 2
 
 | Namn | Förklaring | Reflektion och regler från *Clean Code* |
 |------|------------|-----------------------------------------|
@@ -20,7 +20,7 @@ I sista delen av kapitel 2 står det att många är rädda att byta namn på sak
 
 ---
 
-# Analys av funktioner (kapitel 3)
+# Analys av funktioner kapitel 3
 
 ## Tabell över fem längsta metoder
 
@@ -35,13 +35,16 @@ I sista delen av kapitel 2 står det att många är rädda att byta namn på sak
 
 ## Kapitelreflektion kap 3 
 
-När jag analyserade mina längsta funktioner märkte jag snabbt att de ofta gör mer än en sak. Till exempel både `addProduct` och `removeProduct` gör validering, letar efter rätt objekt, och sedan uppdaterar eller modifierar arrayen. Detta bryter mot regeln **Do One Thing** och gör koden svårare att återanvända och testa. Jag ser också tydliga brott mot **Don’t Repeat Yourself**, eftersom logik för “om quantity är undefined  sätt 1” finns på flera ställen. Det borde ligga i en hjälpfunktion.  
+När jag analyserade mina längsta funktioner märkte jag snabbt att de ofta gör mer än en sak. Till exempel både `addProduct` och `removeProduct`, letar efter rätt objekt, och sedan uppdaterar eller modifierar arrayen. Detta bryter mot regeln **Do One Thing** och gör koden svårare att återanvända och testa. Jag ser också tydliga brott mot **Don’t Repeat Yourself**, eftersom logik för “om quantity är undefined  sätt 1” finns på flera ställen. Det borde ligga i en hjälpfunktion.  
 
 En annan brist är att många av mina funktioner tar 2–3 argument, vilket går emot rekommendationen att helst bara ha 0–1 argument. Det gör koden mer svårtestad och kräver fler kombinationer i testfallen. 
 
 Däremot tycker jag att felhanteringen i mina `validators` är ganska bra. De kastar alltid undantag istället för att returnera error koder, vilket följer rekommendationen **Prefer Exceptions to Returning Error Codes**.  
 
-Jag håller med om de flesta av reglerna i kapitel 3, men jag märker också att det ibland blir överdrivet att bryta ner väldigt små funktioner. Exempelvis i `validateProduct` tycker jag det är mer läsbart att se alla kontroller i rad än att bryta ut varje enskild check i separata funktioner.  
+Jag håller med om de flesta av reglerna i kapitel 3, men jag märker också att det ibland blir överdrivet att bryta ner väldigt små funktioner. Exempelvis i `validateProduct` tycker jag det är mer läsbart att se alla kontroller i rad än att bryta ut varje enskild check i separata funktioner. 
+
+Jag tycker att det blir extremt overkill att hela tiden refacturera och hela tiden btyta ner alla funktioner till bara ett par rader. Jag vet inte exakt hur det ser ut i arbetslivet men efter kursen 1DV613 fick man en liten inblick. Man har hela tiden ett schema att gå efter och tid är pengar. Att då bryta ner allt och lägga mycket tid på att få allt **Small!** och **Do one thing** som är det mest centrala delarna i kapitlet, kan jag tycka bli väldigt extremt. 
+Missförstå mig inte, finns tiden att göra detta så köper jag nästan allt rakt av. 
 
 
 ## Reflektion över egen kodkvalitet

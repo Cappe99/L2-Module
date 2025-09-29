@@ -1,12 +1,10 @@
 # Shopping Cart module
 
+The shopping cart is a simplel tool for building a webb store. It manages the cart functionality, handles shipping costs, and applies discount rules.
+
 ### HEADS UP
 
 This is a basic modul that is written by me, Casper a student at linnaeus university. Bugs may occur.
-
----
-
-The shopping cart is a simplel tool for building a webb store. It manages the cart functionality, handles shipping costs, and applies discount rules.
 
 ## Installation
 
@@ -21,6 +19,8 @@ If this is a brand new project, initialize it with:
 Install the package using npm:
 
 `npm i l2-module-cart-and-discounts`
+
+[Npm link](https://www.npmjs.com/package/l2-module-cart-and-discounts)
 
 ## Example Usage
 
@@ -73,7 +73,7 @@ There are currently **no runtime dependencies**, meaning the module can be used 
 - **MINOR** – Backwards-compatible new features  
 - **PATCH** – Bug fixes  
 
-The current version is **1.0.1**.
+The current version is **1.0.3**.
 
 ### Installation of Dependencies
 To install all dependencies, run:

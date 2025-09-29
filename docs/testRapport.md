@@ -4,8 +4,8 @@
 
 The purpose of this document is to provide an overview of the testing performed in this project and to document the individual manual and automated test cases.
 
-## Scope – What will be tested and how?
-The main focus is testing the **Cart handling**, **Discount logic (DiscountManager)**, and **Validation functions (validators)**.  
+## Scope What will be tested and how?
+The main focus is testing the **Cart handling**, **Discount logic**, and **Validation functions (validators)**.  
 Testing is divided into two parts:  
 - **Manual testing**: Performed via a custom test file (`tests/testCart.js`) executed in Node.js, with results logged in the console.  
 - **Automated unit testing**: Performed with Jest (`tests/validators.test.js`) to ensure validation and error handling work correctly.
@@ -105,13 +105,13 @@ Testing is divided into two parts:
 
 | What was tested                           | How it was tested                                                                 | Result |
 |-------------------------------------------|-----------------------------------------------------------------------------------|--------|
-| Add product to cart                       | Manual test script: added 1 T-shirt → checked `cart.items` and `getTotalPrice`    | ✅ Pass |
-| Remove product from cart                  | Manual test script: removed 1 T-shirt → verified quantity updated                 | ✅ Pass |
-| Clear cart                                | Manual test script: called `clearCart()` → verified `cart.items` empty            | ✅ Pass |
-| Shipping cost calculation                 | Manual test script: set shipping to 49 SEK → verified applied correctly           | ✅ Pass |
-| Free shipping threshold                   | Manual test script: set threshold 1000 → verified shipping removed above limit    | ✅ Pass |
-| Apply discount code                       | Manual test script: used `SOMMAR25` → verified total reduced                      | ✅ Pass |
-| Apply “3 for 2” rule                      | Manual test script: added 3 hoodies → verified one free                           | ✅ Pass |
+| Add product to cart                       | Manual test: added 1 T-shirt -> checked `cart.items` and `getTotalPrice`    | ✅ Pass |
+| Remove product from cart                  | Manual test: removed 1 T-shirt -> verified quantity updated                 | ✅ Pass |
+| Clear cart                                | Manual test: called `clearCart()` -> verified `cart.items` empty            | ✅ Pass |
+| Shipping cost calculation                 | Manual test: set shipping to 49 SEK -> verified applied correctly           | ✅ Pass |
+| Free shipping threshold                   | Manual test: set threshold 1000 -> verified shipping removed above limit    | ✅ Pass |
+| Apply discount code                       | Manual test: used `SOMMAR25` -> verified total reduced                      | ✅ Pass |
+| Apply “3 for 2” rule                      | Manual test: added 3 hoodies -> verified one free                           | ✅ Pass |
 
 ## Exampel code
 
