@@ -1,13 +1,43 @@
+import DiscountRules from "./Rules/discountRules.js"
 import { validDiscounts } from "./discountCodes.js"
-import * as DiscountRules from "./Rules/discountRules.js"
 
 export class DiscountManager {
-    constructor() {
-        this.appliedDiscounts = []
-        this.validDiscounts = validDiscounts
-        this.buyXPayForYRules = []
-        this.freeShippingThreshold = null
-        this.shippingCost = undefined
+    #appliedDiscounts = []
+    #validDiscounts = validDiscounts
+    #buyXPayForYRules = []
+    #freeShippingThreshold = null
+    shippingCost = undefined
+    
+    get appliedDiscounts() {
+        return [...this.#appliedDiscounts]
+    }
+
+    get buyXPayForYRules() {
+        return [...this.#buyXPayForYRules]
+    }
+
+    get setFreeShippingThreshold() {
+        return [...this.#freeShippingThreshold]
+    }
+
+    get validDiscounts() {
+        return this.#validDiscounts
+    }
+
+    get appliedDiscounts() {
+        return this.#appliedDiscounts
+    }
+
+    _setAddAppliedDiscount(discount) {
+        this.#appliedDiscounts.push(discount)
+    }
+
+    _setAddBuyXPayForYRule(x, y) {
+        this.#buyXPayForYRules.push({ x, y })
+    }
+
+    _setFreeShippingThreshold(amount) {
+        this.#freeShippingThreshold = amount
     }
 
     applyDiscountCode(code) {
@@ -23,7 +53,7 @@ export class DiscountManager {
     }
     
     isFreeShipping(cartTotal) {
-      return DiscountRules.isFreeShippingRule(this, cartTotal)
+      return this.#freeShippingThreshold !== null && cartTotal >= this.#freeShippingThreshold
     }
 
     applayDiscounts(cartItems, totalPrice) {

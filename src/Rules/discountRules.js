@@ -6,7 +6,7 @@ import { validateBuyXPayForY,
     validateTotalPrice
  } from "./validators.js"
 
-export function applyDiscountCodeRule(manager, code) {
+function applyDiscountCodeRule(manager, code) {
     validateDiscountCode(code)
 
     const discount = manager.validDiscounts.find(d => d.code === code)
@@ -16,28 +16,28 @@ export function applyDiscountCodeRule(manager, code) {
     }
 
     if (!manager.appliedDiscounts.some(d => d.code === code)) {
-            manager.appliedDiscounts.push(discount)
+            manager._setAddAppliedDiscount(discount)
     }
     return true
 }
 
-export function addBuyXPayForYRule(manager, x, y) {
+function addBuyXPayForYRule(manager, x, y) {
     validateBuyXPayForY(x, y)
-    manager.buyXPayForYRules.push({ x, y })
+    manager._setAddBuyXPayForYRule(x, y)
 }
 
-export function setFreeShippingThresholdRule(manager, amount) {
+function setFreeShippingThresholdRule(manager, amount) {
     validateFreeShippingThreshold(amount)
-    manager.freeShippingThreshold = amount
+    manager._setFreeShippingThreshold(amount)
 }
 
-export function isFreeShippingRule(manager, cartTotal) {
+function isFreeShippingRule(manager, cartTotal) {
     validateCartTotal(cartTotal)
     if (!manager.freeShippingThreshold) return false
     return cartTotal >= manager.freeShippingThreshold
 }
 
-export function applyDiscountsRule(manager, cartItems, totalPrice) {
+function applyDiscountsRule(manager, cartItems, totalPrice) {
     validateCartItems(cartItems)
     validateTotalPrice(totalPrice)
 
@@ -58,4 +58,12 @@ export function applyDiscountsRule(manager, cartItems, totalPrice) {
     }
 
     return discountedPrice
+}
+
+export default {
+  applyDiscountCodeRule,
+  addBuyXPayForYRule,
+  setFreeShippingThresholdRule,
+  isFreeShippingRule,
+  applyDiscountsRule
 }

@@ -1,6 +1,6 @@
 import { validateProduct, validateQuantity } from "./validators.js"
 
-export function addProduct(items, product, quantity = 1) {
+function addProduct(items, product, quantity = 1) {
     validateProduct(product)
     validateQuantity(quantity)
 
@@ -19,7 +19,7 @@ export function addProduct(items, product, quantity = 1) {
     return items
 }
 
-export function removeProduct(items, product, quantity) {
+function removeProduct(items, product, quantity) {
     validateProduct(product)
     validateQuantity(quantity)
 
@@ -41,20 +41,20 @@ export function removeProduct(items, product, quantity) {
        return items
 }
 
-export function clearCart() {
+function clearCart() {
     return []
 }
 
-export function getTotalQuantity(items) {
+function getTotalQuantity(items) {
     return items.reduce((total, item) => total + item.quantity, 0)
 }
 
-export function getTotalPriceAfterDiscounts(items, discountManager) {
+function getTotalPriceAfterDiscounts(items, discountManager) {
     let totalPrice = items.reduce((sum, item) => sum + item.price * item.quantity, 0)
     return discountManager.applayDiscounts(items, totalPrice)
 }
 
-export function getShippingCost(items, discountManager) {
+function getShippingCost(items, discountManager) {
     const total = getTotalPriceAfterDiscounts(items, discountManager)
     if (discountManager.isFreeShipping(total)) {
         return 0
@@ -62,7 +62,16 @@ export function getShippingCost(items, discountManager) {
     return discountManager.shippingCost ?? null
 }
 
-export function getFinalPrice(items, discountManager) {
+function getFinalPrice(items, discountManager) {
     return getTotalPriceAfterDiscounts(items, discountManager) + getShippingCost(items, discountManager)
 }
 
+export default {
+  addProduct,
+  removeProduct,
+  clearCart,
+  getTotalQuantity,
+  getTotalPriceAfterDiscounts,
+  getShippingCost,
+  getFinalPrice
+}

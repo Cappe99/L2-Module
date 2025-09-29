@@ -90,6 +90,9 @@ If you want to help improve this project, here’s how you can get started:
 
 [developer guide](https://github.com/Cappe99/L2-Module/blob/main/docs/CONTRIBUTING.md)
 
+Find bug or improvment? 
+Write a issue at [Issues](https://github.com/Cappe99/L2-Module/issues?q=is%3Aissue%20state%3Aclosed)
+
 
 ## TEST
 
