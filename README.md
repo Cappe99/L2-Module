@@ -1,26 +1,12 @@
 # Shopping Cart module
 
-The shopping cart is a simplel tool for building a webb store. It manages the cart functionality, handles shipping costs, and applies discount rules.
+The Shopping Cart module is a lightweight and flexible tool for building e-commerce functionality.
+It helps developers manage cart items, apply discount rules, and calculate shipping and final prices automatically.
+The module is designed to separate cart logic from discount handling, making it easy to extend and integrate into any web store.
 
 ### HEADS UP
 
 This is a basic modul that is written by me, Casper a student at linnaeus university. Bugs may occur.
-
-## Installation
-
-This is a Node.js module available through the npm registry.
-
-Before installing, make sure you have Node.js installed.
-
-If this is a brand new project, initialize it with:
-
-`npm init -y`
-
-Install the package using npm:
-
-`npm i l2-module-cart-and-discounts`
-
-[Npm link](https://www.npmjs.com/package/l2-module-cart-and-discounts)
 
 ## Example Usage
 
@@ -48,6 +34,24 @@ console.log("Total prrice to pay:", cart.getFinalPrice())
 ```
 
 For a complete demonstration including discounts, “Buy X Pay for Y” rules, and free shipping, run the full test script included in the package.
+
+## Installation
+
+This is a Node.js module available through the npm registry.
+
+Before installing, make sure you have Node.js installed.
+
+If this is a brand new project, initialize it with:
+
+`npm init -y`
+
+Install the package using npm:
+
+`npm i l2-module-cart-and-discounts`
+
+[Npm link](https://www.npmjs.com/package/l2-module-cart-and-discounts)
+
+
 
 # Dependencies, Language and Versions
 

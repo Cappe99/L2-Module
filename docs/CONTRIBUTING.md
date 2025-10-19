@@ -80,6 +80,7 @@ When contributing, please follow these guidelines:
 
 - Keep code modular (Cart handles cart logic, DiscountManager handles discounts, etc.).
 - Add or update tests if you add/change functionality.
+   - Both `testCart.js` and `validators.test.js`
 - Run `npm test` before opening a Pull Request.
 - Follow existing naming conventions (camelCase for functions, PascalCase for classes).
 
